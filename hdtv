@@ -6,41 +6,45 @@ import java.util.*;
 
 public class Hdtv {
 
-  
- public int size;
-
- private String brand;
- Hdtv(String brand,int size){
-
-public static void main(String args[]){  
- 
-Hdtv  t1=new Hdtv("S",23);  
- Hdtv t2=new Hdtv("R",21);  
-  Hdtv t3=new Hdtv("H",25);  
-      
-  ArrayList<Hdtv> obj=new ArrayList<Hdtv>();
-  obj.add(t1);// 
-  obj.add(t2);  
-  obj.add(t3);  
-  
-
 	
-	for (Hdtv object:obj){
-		
-		System.out.println(obj);
+		public int size;
+		public String brand;
+	 
+		public Hdtv(int size, String brand) {
+			this.size = size;
+			this.brand = brand;
+		}
+	 
+		public int getSize() {
+			return size;
+		}
+	 
+		public void setSize(int size) {
+			this.size = size;
+		}
+	 
+		public String getBrand() {
+			return brand;
+		}
+	 
+		public void setBrand(String brand) {
+			this.brand = brand;
+		}
 	}
+	 
+	class SizeComparator implements Comparator<Hdtv> {
 	
-	System.out.println("=======Sorted========");
-	Collections.sort(obj, new Comparator<Hdtv>() {
-
-		@Override
 		public int compare(Hdtv t1, Hdtv t2) {
-			return( t2.size()- t1.size());
-				
-
-
-	
-for (Hdtv objects:obj){
-	
-	System.out.println(obj);
-}
+			int t1Size = t1.getSize();
+			int t2Size = t2.getSize();
+	 
+			if (t1Size > t2Size) {
+				return 1;
+			} else if (t1Size < t2Size) {
+				return -1;
+			} else {
+				return 0;
+			}
+		}
+		
+} 
